@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap");
 
+:root {
+  --font: "JetBrains Mono", monospace;
+  --font-color: #f1f5f9;
+  --font-color-2: #d1d5db;
+}
+
 html {
   background-color: #141414;
   margin: 0 auto;
@@ -23,12 +29,12 @@ html {
   /* border: 1px solid white; */
   margin-top: 175px;
   margin-bottom: 50px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font);
 }
 
 .title h1 {
   font-size: 32px;
-  color: #f1f5f9;
+  color: var(--font-color);
 }
 
 .container-search {
@@ -46,13 +52,14 @@ html {
   color: rgba(255, 255, 255, 0.85);
   background: #1f1f1f;
   border: none;
+  font-family: var(--font);
 }
 
 .icone-search {
   width: 30px;
   position: relative;
   bottom: 50px;
-  left: 10px;
+  left: 12px;
 }
 
 .btn-search {
@@ -66,11 +73,137 @@ html {
   color: #ffff;
   border: none;
   cursor: pointer;
+  font-family: var(--font);
 }
 
-.card {
+.card-container {
   width: 100%;
   height: 430px;
   background: #1f1f1f;
   border-radius: 20px;
+}
+
+.perfil {
+  display: flex;
+  width: 630px;
+  margin-top: 55px;
+  margin-left: 55px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 480px;
+  margin-left: 50px;
+}
+
+.name-sub {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.perfil-name {
+  font-size: 28px;
+  font-family: var(--font);
+  color: var(--font-color);
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.perfil-sub {
+  font-family: var(--font);
+  color: #9333ea;
+  font-size: 12px;
+}
+
+.perfil-bio {
+  font-size: 16px;
+  color: var(--font-color);
+  font-family: var(--font);
+  margin-top: 40px;
+}
+
+.perfil-date {
+  color: var(--font-color-2);
+  font-family: var(--font);
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.card-status {
+  width: 480px;
+  height: 99px;
+  display: flex;
+  background: #171717;
+  border-radius: 10px;
+  margin-left: 205px;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-status-container {
+  width: 100%;
+  height: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: var(--font-color-2);
+  font-family: var(--font);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repos-sub {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.repos-number {
+  line-height: 37px;
+  font-size: 26px;
+}
+
+.social-network {
+  display: flex;
+  margin-left: 215px;
+  margin-top: 30px;
+  color: var(--font-color-2);
+  font-family: var(--font);
+}
+
+.cont-loc-git {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.cont-twit-build {
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 56px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.container-location-github {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-location-github img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.container-twitter-building {
+  flex-direction: column;
+}
+
+.container-twitter-building img {
+  width: 20px;
+  margin-right: 10px;
 }
