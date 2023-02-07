@@ -1,19 +1,20 @@
 const form = document.querySelector("#campo");
 async function fetchUserGithub(event) {
   event.preventDefault();
-  console.log(event.target.value);
+  if (document.querySelector("section")) {
+    document.querySelector("section").remove();
+  }
   const value = event.target.value;
-
-  console.log(value);
 
   const userResponse = await fetch(`https://api.github.com/users/${value}`);
   const userJson = await userResponse.json();
 
   const divContainer = document.querySelector(".container");
-  console.log(userJson);
 
   const sectionUser = document.createElement("section");
+
   sectionUser.classList.add("card-container");
+
   divContainer.appendChild(sectionUser);
 
   // formatar data com mes
@@ -43,7 +44,7 @@ async function fetchUserGithub(event) {
             <div class="name-sub">
               <h1 class="perfil-name">${userJson.name}</h1>
               <p class="perfil-sub">@${userJson.login}</p>
-              <p class="perfil-bio">${userJson.bio}</p>
+              <p class="perfil-bio">${userJson.bio || "not found"}</p>
             </div>
             <div class="perfil-date">
               <p>joined ${dataFormatada}</p>
@@ -75,7 +76,7 @@ async function fetchUserGithub(event) {
 
             <div class="cont-loc-git">
               <img src="./assets/link.svg" alt="icone do github" />
-              <p class="user-github">${userJson.html_url}</p>
+              <p class="user-github">${userJson.html_url || "not found"}</p>
             </div>
           </div>
 
@@ -97,5 +98,3 @@ async function fetchUserGithub(event) {
 }
 
 form.addEventListener("change", fetchUserGithub);
-
-//saída: 31 Dez 2019
