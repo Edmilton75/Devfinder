@@ -68,12 +68,14 @@ html {
   width: 120px;
   position: relative;
   bottom: 60px;
-  left: 578px;
+  left: 576px;
   border-radius: 10px;
   color: #ffff;
   border: none;
   cursor: pointer;
   font-family: var(--font);
+  font-size: 18px;
+  text-align: center;
 }
 
 .card-container {
@@ -81,6 +83,12 @@ html {
   height: 430px;
   background: #1f1f1f;
   border-radius: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .perfil {
