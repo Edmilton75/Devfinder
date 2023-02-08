@@ -189,12 +189,23 @@ html {
   font-size: 12px;
 }
 
-.cont-twit-build {
+.cont-loc-git a {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  font-size: 12px;
+  text-decoration: none;
+  color: var(--font-color-2);
+}
+
+.cont-twit-build a {
   display: flex;
   margin-bottom: 20px;
   margin-left: 56px;
   align-items: center;
   font-size: 12px;
+  text-decoration: none;
+  color: var(--font-color-2);
 }
 
 .container-location-github {

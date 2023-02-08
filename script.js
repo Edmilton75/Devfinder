@@ -69,32 +69,51 @@ async function fetchUserGithub(event) {
         </div>
         <div class="social-network">
           <div class="container-location-github">
-            <div class="cont-loc-git">
+            <div class="cont-loc-git remove">
+            
               <img src="./assets/mapPin.svg" alt="icone de localização" />
-              <p class="user-location">${userJson.location || "not found"}</p>
+              <p class="user-location">${
+                userJson.location || "not available"
+              }</p>
             </div>
 
-            <div class="cont-loc-git">
-              <img src="./assets/link.svg" alt="icone do github" />
-              <p class="user-github">${userJson.html_url || "not found"}</p>
+            <div class="cont-loc-git remove">
+            <a href=${userJson.html_url}>
+          
+            <img src="./assets/link.svg" alt="icone do github" />
+            <p class="user-github">${userJson.html_url || "not available"}</p>
+        </a>
             </div>
           </div>
 
           <div class="container-twitter-building">
-            <div class="cont-twit-build">
-              <img src="./assets/twitterlogo.svg" alt="icone do twitter" />
-              <p class="user-twitter">${
-                userJson.twitter_username || "not found"
-              }</p>
+            <div class="cont-twit-build remove">
+            <a href="https://${userJson.twitter_username}">
+          
+            <img src="./assets/twitterlogo.svg" alt="icone do twitter" />
+            <p class="user-twitter">${
+              userJson.twitter_username || "not available"
+            }</p>
+            </a>
             </div>
 
-            <div class="cont-twit-build">
-              <img src="./assets/buildings.svg" alt="icone do portifolio" />
-              <p class="user-portifolio">${userJson.blog || "not found"}</p>
+            <div class="cont-twit-build remove">
+            <a href=http://www.${userJson.blog}>
+            
+            <img src="./assets/buildings.svg" alt="icone do portifolio" />
+            <p class="user-portifolio">${userJson.blog || "not available"}</p>
+            </a>
             </div>
           </div>
         </div>
   `;
+
+  const available = document.querySelectorAll("a");
+  available.forEach((a) => {
+    if (a.innerText === "not available") {
+      a.setAttribute("style", "pointer-events: none");
+    }
+  });
 }
 
 form.addEventListener("change", fetchUserGithub);
