@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap");
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --font: "JetBrains Mono", monospace;
   --font-color: #f1f5f9;
@@ -225,4 +231,9 @@ html {
 .container-twitter-building img {
   width: 20px;
   margin-right: 10px;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.33;
 }

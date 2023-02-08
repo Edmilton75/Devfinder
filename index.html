@@ -14,75 +14,22 @@
         <h1>devfinder</h1>
       </header>
       <div class="container-search">
-        <form name="campo" id="campo">
-
-          <input type="text" class="input-search" placeholder="Search" required/>
+        <form>
+          <input
+            type="text"
+            class="input-search"
+            placeholder="Search"
+            onfocus="value=''"
+            required
+          />
           <img
             class="icone-search"
             src="./assets/search-icon.svg"
             alt="icone de busca"
           />
-          <input type="button
-          " class="btn-search" value="Search" ></input>
-        </div>
+          <button type="submit" class="btn-search">Search</button>
         </form>
-    
-      <!-- <section class="card-container">
-        <div class="perfil">
-          <img src="./assets/avatar.svg" alt="" />
-          <div class="info">
-            <div class="name-sub">
-              <h1 class="perfil-name">The Octocat</h1>
-              <p class="perfil-sub">@octocat</p>
-              <p class="perfil-bio">This profile has no bio.</p>
-            </div>
-            <div class="perfil-date">
-              <p>joined 24 jan 2011</p>
-            </div>
-          </div>
-        </div>
-        <div class="card-status">
-          <div class="profile-status-container">
-            <div class="repos">
-              <p class="repos-sub">repos</p>
-              <p class="repos-number">8888</p>
-            </div>
-            <div class="followers">
-              <p class="repos-sub">followers</p>
-              <p class="repos-number">3939</p>
-            </div>
-            <div class="following">
-              <p class="repos-sub">following</p>
-              <p class="repos-number">9434</p>
-            </div>
-          </div>
-        </div>
-        <div class="social-network">
-          <div class="container-location-github">
-            <div class="cont-loc-git">
-              <img src="./assets/mapPin.svg" alt="icone de localização" />
-              <p class="user-location">Fortaleza, Brazil</p>
-            </div>
-
-            <div class="cont-loc-git">
-              <img src="./assets/link.svg" alt="icone do github" />
-              <p class="user-github">github.com/octocat</p>
-            </div>
-          </div>
-
-          <div class="container-twitter-building">
-            <div class="cont-twit-build">
-              <img src="./assets/twitterlogo.svg" alt="icone do twitter" />
-              <p class="user-twitter">edmilton7500</p>
-            </div>
-
-            <div class="cont-twit-build">
-              <img src="./assets/buildings.svg" alt="icone do portifolio" />
-              <p class="user-portifolio">@github</p>
-            </div>
-          </div>
-        </div>
-      </section> -->
+      </div>
     </div>
   </body>
   <script src="script.js" defer></script>

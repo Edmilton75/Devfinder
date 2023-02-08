@@ -1,21 +1,29 @@
-const form = document.querySelector("#campo");
+const form = document.querySelector("form");
+const btn = document.querySelector(".btn-search");
+const input = document.querySelector(".input-search");
+let valor = "";
+
 async function fetchUserGithub(event) {
   event.preventDefault();
-  if (document.querySelector("section")) {
-    document.querySelector("section").remove();
-  }
-  const value = event.target.value;
-
-  const userResponse = await fetch(`https://api.github.com/users/${value}`);
+  valor = input.value;
+  const userResponse = await fetch(`https://api.github.com/users/${valor}`);
   const userJson = await userResponse.json();
 
-  const divContainer = document.querySelector(".container");
+  const container = document.querySelector(".container");
+
+  const section = document.querySelector("section");
+
+  const card = document.querySelector(".card-container");
+
+  if (section) {
+    container.removeChild(card);
+  }
 
   const sectionUser = document.createElement("section");
 
   sectionUser.classList.add("card-container");
 
-  divContainer.appendChild(sectionUser);
+  container.appendChild(sectionUser);
 
   // formatar data com mes
   const meses = [
@@ -34,8 +42,8 @@ async function fetchUserGithub(event) {
   ];
 
   let data = new Date(userJson.created_at);
-  let dataFormatada =
-    data.getDate() + " " + meses[data.getMonth()] + " " + data.getFullYear();
+  let dataFormatada = `
+    ${data.getDate()} ${meses[data.getMonth()]} ${data.getFullYear()}`;
 
   sectionUser.innerHTML = `
   <div class="perfil">
@@ -44,7 +52,7 @@ async function fetchUserGithub(event) {
             <div class="name-sub">
               <h1 class="perfil-name">${userJson.name}</h1>
               <p class="perfil-sub">@${userJson.login}</p>
-              <p class="perfil-bio">${userJson.bio || "not found"}</p>
+              <p class="perfil-bio">${userJson.bio || "Not found"}</p>
             </div>
             <div class="perfil-date">
               <p>joined ${dataFormatada}</p>
@@ -54,7 +62,7 @@ async function fetchUserGithub(event) {
         <div class="card-status">
           <div class="profile-status-container">
             <div class="repos">
-              <p class="repos-sub">repos</p>
+              <p class="repos-sub ">repos</p>
               <p class="repos-number">${userJson.public_repos}</p>
             </div>
             <div class="followers">
@@ -69,51 +77,46 @@ async function fetchUserGithub(event) {
         </div>
         <div class="social-network">
           <div class="container-location-github">
-            <div class="cont-loc-git remove">
+            <div class="cont-loc-git ${userJson.location ? "" : "disabled"}">
             
               <img src="./assets/mapPin.svg" alt="icone de localização" />
               <p class="user-location">${
-                userJson.location || "not available"
+                userJson.location || "Not available"
               }</p>
             </div>
 
-            <div class="cont-loc-git remove">
+            <div class="cont-loc-git ${userJson.html_url ? "" : "disabled"}">
             <a href=${userJson.html_url}>
           
             <img src="./assets/link.svg" alt="icone do github" />
-            <p class="user-github">${userJson.html_url || "not available"}</p>
+            <p class="user-github">${userJson.html_url || "Not available"}</p>
         </a>
             </div>
           </div>
 
           <div class="container-twitter-building">
-            <div class="cont-twit-build remove">
+            <div class="cont-twit-build ${
+              userJson.twitter_username ? "" : "disabled"
+            }">
             <a href="https://${userJson.twitter_username}">
           
             <img src="./assets/twitterlogo.svg" alt="icone do twitter" />
             <p class="user-twitter">${
-              userJson.twitter_username || "not available"
+              userJson.twitter_username || "Not available"
             }</p>
             </a>
             </div>
 
-            <div class="cont-twit-build remove">
+            <div class="cont-twit-build ${userJson.blog ? "" : "disabled"}">
             <a href=http://www.${userJson.blog}>
             
             <img src="./assets/buildings.svg" alt="icone do portifolio" />
-            <p class="user-portifolio">${userJson.blog || "not available"}</p>
+            <p class="user-portifolio">${userJson.blog || "Not available"}</p>
             </a>
             </div>
           </div>
         </div>
   `;
-
-  const available = document.querySelectorAll("a");
-  available.forEach((a) => {
-    if (a.innerText === "not available") {
-      a.setAttribute("style", "pointer-events: none");
-    }
-  });
 }
 
-form.addEventListener("change", fetchUserGithub);
+btn.addEventListener("click", fetchUserGithub);
