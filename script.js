@@ -59,7 +59,7 @@ async function cardGereration(userJson1) {
             <div class="name-sub">
               <h1 class="perfil-name">${userJson.name}</h1>
               <p class="perfil-sub">${userJson.login}</p>
-              <p class="perfil-bio">${userJson.login}</p>
+              <p class="perfil-bio">${userJson.bio || "Bio: Not available"}</p>
             </div>
             <div class="perfil-date">
               <p>Joined ${dataFormatada}</p>
