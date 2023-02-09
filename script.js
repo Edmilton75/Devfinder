@@ -10,8 +10,8 @@ searchBtn.addEventListener("click", function (e) {
 async function cardGereration(userJson1) {
   const userResponse = await fetch(`https://api.github.com/users/${userJson1}`);
 
-  console.log(userResponse.status);
   const userJson = await userResponse.json();
+
   if (userResponse.status === 200) {
     const container = document.querySelector(".container");
 
@@ -59,7 +59,9 @@ async function cardGereration(userJson1) {
             <div class="name-sub">
               <h1 class="perfil-name">${userJson.name}</h1>
               <p class="perfil-sub">${userJson.login}</p>
-              <p class="perfil-bio">${userJson.bio || "Bio: Not available"}</p>
+              <p class="perfil-bio ${userJson.bio ? "" : "disabled"}">${
+      userJson.bio || "This profile has no bio"
+    }</p>
             </div>
             <div class="perfil-date">
               <p>Joined ${dataFormatada}</p>

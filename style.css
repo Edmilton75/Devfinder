@@ -22,7 +22,7 @@ html {
   flex-direction: column;
   justify-content: center;
   width: 740px;
-
+  min-height: 100vh;
   margin: 0 auto;
 }
 
@@ -32,7 +32,6 @@ html {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  margin-top: 174px;
   margin-bottom: 40px;
   font-family: var(--font);
 }
@@ -40,10 +39,6 @@ html {
 .title h1 {
   font-size: 32px;
   color: var(--font-color);
-}
-
-.container-search {
-  width: 553px;
 }
 
 .input-search {
@@ -72,7 +67,7 @@ html {
   height: 50px;
   width: 120px;
   position: relative;
-  bottom: 60px;
+  bottom: 58px;
   left: 576px;
   border-radius: 10px;
   color: #ffff;
@@ -148,7 +143,7 @@ html {
   font-size: 16px;
   margin-top: 10px;
   display: flex;
-  width: 100%;
+  width: 200px;
   justify-content: end;
 }
 
