@@ -237,3 +237,7 @@ html {
   pointer-events: none;
   opacity: 0.33;
 }
+
+.user-github:hover {
+  color: #9333ea;
+}

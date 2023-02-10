@@ -58,7 +58,7 @@ async function cardGereration(userJson1) {
           <div class="info">
             <div class="name-sub">
               <h1 class="perfil-name">${userJson.name}</h1>
-              <p class="perfil-sub">${userJson.login}</p>
+              <p class="perfil-sub">@${userJson.login}</p>
               <p class="perfil-bio ${userJson.bio ? "" : "disabled"}">${
       userJson.bio || "This profile has no bio"
     }</p>
@@ -117,7 +117,7 @@ async function cardGereration(userJson1) {
               <div class="cont-twit-build ${userJson.blog ? "" : "disabled"}">
                 <a href="http://www.${userJson.blog}">
                   <img src="./assets/buildings.svg" alt="icone do portifolio" />
-                  <p class="user-portifolio">${
+                  <p class="user-portifolio ">${
                     userJson.blog || "Not available"
                   }</p>
                 </a>
